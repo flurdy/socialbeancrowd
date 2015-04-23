@@ -11,11 +11,11 @@ public class SocialProcessorImpl implements SocialProcessor {
 
    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-   private final SocialOutputer outputer;
+   private final SocialOutputter outputter;
    private final SocialMemberRepository repository;
 
-   public SocialProcessorImpl(SocialOutputer outputer, SocialMemberRepository repository){
-      this.outputer = outputer;
+   public SocialProcessorImpl(SocialOutputter outputter, SocialMemberRepository repository){
+      this.outputter = outputter;
       this.repository = repository;
    }
 
@@ -23,7 +23,7 @@ public class SocialProcessorImpl implements SocialProcessor {
       processAction( new LinkedList<String>( Arrays.asList( input.split("\\s+") ) ) );
    }
 
-   public void processAction(Deque<String> input){
+   protected void processAction(Deque<String> input){
       if( !input.isEmpty() ){
          final String memberName = input.pop();
          final SocialMember member = repository.findOrCreateMember(memberName);
@@ -31,7 +31,7 @@ public class SocialProcessorImpl implements SocialProcessor {
       }
    }
 
-   public void processMemberAction(SocialMember member, Deque<String> input){
+   protected List<String> processMemberAction(SocialMember member, Deque<String> input){
       if( input.isEmpty() ){
          // list posts
       } else {
@@ -44,6 +44,7 @@ public class SocialProcessorImpl implements SocialProcessor {
             // follow friend
          }
       }
+       return new ArrayList<String>();
    }
 
 }

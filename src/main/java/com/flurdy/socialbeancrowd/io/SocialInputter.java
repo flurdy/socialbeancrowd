@@ -1,7 +1,7 @@
 package com.flurdy.socialbeancrowd.io;
 
 
-public interface SocialInputer {
+public interface SocialInputter {
 
    public String readNextSocialAction();
    

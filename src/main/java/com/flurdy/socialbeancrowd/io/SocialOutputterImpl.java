@@ -3,11 +3,11 @@ package com.flurdy.socialbeancrowd.io;
 import java.io.OutputStream;
 
 
-public class SocialOutputerImpl implements SocialOutputer {
+public class SocialOutputterImpl implements SocialOutputter {
 
    private final OutputStream outputStream;
 
-   public SocialOutputerImpl(OutputStream outputStream){
+   public SocialOutputterImpl(OutputStream outputStream){
       this.outputStream = outputStream;
    }
 

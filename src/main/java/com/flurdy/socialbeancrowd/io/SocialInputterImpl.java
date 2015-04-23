@@ -3,17 +3,12 @@ package com.flurdy.socialbeancrowd.io;
 import java.io.InputStream;
 import java.util.Scanner;
 // import java.util.InputMismatchException;
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
 
+public class SocialInputterImpl implements SocialInputter {
 
-public class SocialInputerImpl implements SocialInputer {
+   private Scanner scanner;
 
-    // private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-   private final Scanner scanner;
-
-   public SocialInputerImpl(InputStream inputStream) {
+   public SocialInputterImpl(InputStream inputStream) {
      this.scanner = new Scanner(inputStream);
    }
 
@@ -24,6 +19,6 @@ public class SocialInputerImpl implements SocialInputer {
       } else {
          return "";
       }
-   }
+  }
 
 }

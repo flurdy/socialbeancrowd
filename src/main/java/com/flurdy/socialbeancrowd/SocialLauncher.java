@@ -17,13 +17,14 @@ public class SocialLauncher {
      * @param args not used
      */
     public static void main(String args[]){
-        final SocialInputer   inputer     = new SocialInputerImpl(System.in);
-        final SocialOutputer  outputer    = new SocialOutputerImpl(System.out);
+        final SocialInputter  inputter  = new SocialInputterImpl(System.in);
+        final SocialOutputter outputter = new SocialOutputterImpl(System.out);
         final SocialMemberRepository repository = new SocialMemberRepositoryImpl();
-        final SocialProcessor processor   = new SocialProcessorImpl(outputer,repository);
-        final SocialLauncher  launcher    = new SocialLauncher();
-        outputer.printLine("Welcome to Social Crowd. Enter a blank line to finish");
-        launcher.readInputAndProcess(processor, inputer, outputer);
+        final SocialProcessor processor = new SocialProcessorImpl(outputter,repository);
+        final SocialLauncher  launcher  = new SocialLauncher();
+        outputter.printLine("Welcome to Social Bean Crowd. Enter a blank line to finish");
+        launcher.readInputAndProcess(processor, inputter, outputter);
+        outputter.printLine("Social Bean Crowd Finished");
     }
 
     /**
@@ -32,10 +33,10 @@ public class SocialLauncher {
      * @param inputer A wrapper for the input stream to read the names and actions from.
      * @param outputer A wrapper for the output stream to print application output.
      */
-    protected void readInputAndProcess(SocialProcessor processor, SocialInputer inputer, SocialOutputer outputer){
+    protected void readInputAndProcess(SocialProcessor processor, SocialInputter inputter, SocialOutputter outputter){
         try {
             String input;
-            while(!(input=inputer.readNextSocialAction()).equals("")){
+            while(!(input=inputter.readNextSocialAction()).equals("")){
                 processor.processAction(input);
             }
         } catch (Exception exception) {
