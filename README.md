@@ -42,6 +42,10 @@ Start application locally with
 
    `./socialbeancrowd`
 
+OR
+
+   `mvn exec:java`
+
 Or with Docker
 
    `docker run -ti --rm flurdy/socialbeancrowd:0.1`
