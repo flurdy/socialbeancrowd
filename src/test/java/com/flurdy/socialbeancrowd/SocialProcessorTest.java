@@ -1,6 +1,7 @@
 package com.flurdy.socialbeancrowd;
 
 
-public interface SocialInput {
+public class SocialProcessorTest {
+   
    
 }

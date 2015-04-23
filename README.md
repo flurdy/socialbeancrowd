@@ -99,7 +99,8 @@ Improvements
 * Akka if needs to scale horizontally and reactive
 * Java 8 or Akka streams if posts/wall are large 
 * Separate apps for input layer, reading and member posts persistance
-* Test Launcher and InputReader
+* Test SocialLauncher and Inputs more
+* Dependency injection context like Spring or Guice
 * Etc
 
 There is a Scala alternative at https://github.com/flurdy/socialcrowd
