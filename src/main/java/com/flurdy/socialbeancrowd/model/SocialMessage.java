@@ -1,5 +1,14 @@
 package com.flurdy.socialbeancrowd.model;
 
 
-public interface SocialMessage {
+import org.joda.time.DateTime;
+
+public interface SocialMessage extends Comparable {
+
+    String getPostMessage();
+
+    String getWallMessage();
+
+    DateTime getTimestamp();
+
 }

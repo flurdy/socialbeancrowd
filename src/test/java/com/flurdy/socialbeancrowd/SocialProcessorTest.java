@@ -26,17 +26,17 @@ public class SocialProcessorTest {
     @Test
     public void whenProcessAction_givenMemberName_thenFindsMember() throws Exception {
         final SocialMember member = mock(SocialMember.class);
-        when(repository.findMember(anyString())).thenReturn(member);
+        when(repository.findOrCreateMember(anyString())).thenReturn(member);
 
         processor.processAction("Alice -> Hello");
 
-        verify(repository,atLeastOnce()).findMember(eq("Alice"));
+        verify(repository,atLeastOnce()).findOrCreateMember(eq("Alice"));
     }
 
     @Test
     public void whenProcessAction_givenMemberAndPostAction_thenListMemberPosts() throws Exception {
         final SocialMember member = mock(SocialMember.class);
-        when(repository.findMember(anyString())).thenReturn(member);
+        when(repository.findOrCreateMember(anyString())).thenReturn(member);
 
         processor.processAction("Alice -> Hello");
 
@@ -45,23 +45,24 @@ public class SocialProcessorTest {
 
     @Test
     public void whenProcessAction_givenMemberAndFollowsActionWithFriendName_thenFollowsFriend() throws Exception {
-        final SocialMember member = mock(SocialMember.class);
-        when(repository.findMember(anyString())).thenReturn(member);
+        final SocialMember alice = mock(SocialMember.class);
+        final SocialMember peter = mock(SocialMember.class);
+        when(repository.findOrCreateMember(eq("Alice"))).thenReturn(alice);
+        when(repository.findMember(eq("Peter"))).thenReturn(peter);
 
         processor.processAction("Alice follows Peter");
 
-        verify(member,atLeastOnce()).follows(any(SocialMember.class));
+        verify(alice,atLeastOnce()).follows(any(SocialMember.class));
     }
-
 
     @Test
     public void whenProcessAction_givenMemberAndWallAction_thenListsWallPosts() throws Exception {
         final SocialMember member = mock(SocialMember.class);
-        when(repository.findMember(anyString())).thenReturn(member);
+        when(repository.findOrCreateMember(anyString())).thenReturn(member);
 
         processor.processAction("Alice wall");
 
-        verify(member,atLeastOnce()).getWallPosts();
+        verify(member,atLeastOnce()).getWallMessages();
     }
 
 }

@@ -7,10 +7,15 @@ public interface SocialMember {
 
     void postMessage(String message);
 
+    void postMessage(SocialMessage message);
+
     void follows(SocialMember friend);
 
-    List<SocialMessage> getWallPosts();
+    List<SocialMessage> getWallMessages();
+
+    List<SocialMessage> getTimelineMessages();
 
     String getMemberName();
+
 
 }

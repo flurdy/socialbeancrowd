@@ -1,6 +1,7 @@
 package com.flurdy.socialbeancrowd.io;
 
 import java.io.OutputStream;
+import java.util.List;
 
 
 public class SocialOutputterImpl implements SocialOutputter {
@@ -11,8 +12,16 @@ public class SocialOutputterImpl implements SocialOutputter {
       this.outputStream = outputStream;
    }
 
+   @Override
    public void printLine(String line){
       System.out.println(line);
    }
-   
+
+   @Override
+   public void printLines(List<String> lines){
+      for(String line : lines){
+         printLine(line);
+      }
+   }
+
 }

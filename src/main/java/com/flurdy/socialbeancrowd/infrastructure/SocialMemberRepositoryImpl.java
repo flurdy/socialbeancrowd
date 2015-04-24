@@ -2,21 +2,31 @@ package com.flurdy.socialbeancrowd.infrastructure;
 
 import com.flurdy.socialbeancrowd.model.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class SocialMemberRepositoryImpl implements SocialMemberRepository {
 
+    private final SocialMemberFactory factory = new SocialMemberFactoryImpl();
+
+    private final Map<String,SocialMember> members = new HashMap<>();
+
+    public SocialMemberRepositoryImpl() {
+    }
+
     @Override
     public SocialMember findMember(String memberName){
-        return null;
+        return members.get(memberName.toLowerCase());
     }
 
     @Override
     public void addMember(SocialMember member) {
-
+        members.put(member.getMemberName().toLowerCase(),member);
     }
 
     private SocialMember createMember(String memberName){
-      return null;
+      return factory.createMember(memberName,this);
    }
 
    @Override
