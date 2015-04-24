@@ -13,6 +13,11 @@ public class SocialOutputterImpl implements SocialOutputter {
    }
 
    @Override
+   public void print(String inline) {
+      System.out.print(inline);
+   }
+
+   @Override
    public void printLine(String line){
       System.out.println(line);
    }

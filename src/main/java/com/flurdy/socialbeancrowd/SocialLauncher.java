@@ -36,8 +36,10 @@ public class SocialLauncher {
     protected void readInputAndProcess(SocialProcessor processor, SocialInputter inputter, SocialOutputter outputter){
         try {
             String input;
+            outputter.print("> ");
             while(!(input=inputter.readNextSocialAction()).equals("")){
                 processor.processAction(input);
+                outputter.print("> ");
             }
         } catch (Exception exception) {
             System.err.println("Unfortunately the application threw an error: "+exception.getMessage());

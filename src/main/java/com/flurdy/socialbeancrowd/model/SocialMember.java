@@ -1,6 +1,7 @@
 package com.flurdy.socialbeancrowd.model;
 
 
+import java.util.Deque;
 import java.util.List;
 
 public interface SocialMember {
@@ -17,5 +18,6 @@ public interface SocialMember {
 
     String getMemberName();
 
+    List<String> processMemberAction(Deque<String> input);
 
 }

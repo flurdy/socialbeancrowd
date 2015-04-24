@@ -17,6 +17,8 @@ RUN rm -rf /opt/app/target
 
 RUN chmod +x /opt/app/socialbeancrowd
 
-RUN mvn package 
+RUN mvn package
+
+ENV JAVA_HOME /usr
 
 ENTRYPOINT ["/opt/app/socialbeancrowd"]

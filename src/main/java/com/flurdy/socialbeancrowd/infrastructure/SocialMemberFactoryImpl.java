@@ -7,7 +7,7 @@ public class SocialMemberFactoryImpl implements SocialMemberFactory {
 
     @Override
     public SocialMember createMember(String memberName, SocialMemberRepository socialMemberRepository) {
-        return new SocialMemberImpl(memberName);
+        return new SocialMemberImpl(socialMemberRepository, memberName);
     }
 
 }

@@ -12,9 +12,6 @@ public class SocialMemberRepositoryImpl implements SocialMemberRepository {
 
     private final Map<String,SocialMember> members = new HashMap<>();
 
-    public SocialMemberRepositoryImpl() {
-    }
-
     @Override
     public SocialMember findMember(String memberName){
         return members.get(memberName.toLowerCase());

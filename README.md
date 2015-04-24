@@ -51,6 +51,17 @@ Or with Docker
    `docker run -ti --rm flurdy/socialbeancrowd:0.1`
 
 
+Tests
+----
+
+   `mvn test`
+
+   `mvn integration-test`
+
+
+Examples
+-----
+
 Post Messages
 -----
 

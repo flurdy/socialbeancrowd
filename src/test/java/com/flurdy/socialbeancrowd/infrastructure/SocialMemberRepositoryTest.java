@@ -20,7 +20,7 @@ public class SocialMemberRepositoryTest {
     @Test
     public void whenFindMember_givenMemberName_thenFindsMember() throws Exception {
 
-        final SocialMember member = new SocialMemberImpl("Alice");
+        final SocialMember member = new SocialMemberImpl(repository,"Alice");
 
         repository.addMember(member);
 
@@ -52,13 +52,26 @@ public class SocialMemberRepositoryTest {
     @Test
     public void whenFindOrCreateMember_givenKnownMemberName_thenFindsMember() throws Exception {
 
-        final SocialMember memberToAdd = new SocialMemberImpl("Alice");
+        final SocialMember memberToAdd = new SocialMemberImpl(repository,"Alice");
         repository.addMember(memberToAdd);
 
         final SocialMember memberFound = repository.findOrCreateMember("Alice");
 
         assertNotNull(memberFound);
         assertEquals("Alice", memberFound.getMemberName());
+    }
+
+    @Test
+    public void whenFindMember_givenMixedCaseName_thenFindsMember() throws Exception {
+
+        final SocialMember member = new SocialMemberImpl(repository,"Alice");
+
+        repository.addMember(member);
+
+        final SocialMember foundMember = repository.findMember("aLICe");
+
+        assertNotNull(foundMember);
+        assertEquals("Alice",foundMember.getMemberName());
     }
 
 }
